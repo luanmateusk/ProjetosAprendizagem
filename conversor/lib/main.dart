@@ -89,13 +89,13 @@ class AppChamadosState extends State<AppChamados> {
               child: Column(
                 children: [
                   CustomTexField(
-                      hintText: "Insira o nome do chamado",
+                      hintText: "Insira o nome do chamado:",
                       label: "Nome",
                       onChanged: (value) {
                         _refreshStateBasics(nome: value);
                       }),
                   CustomTexField(
-                      hintText: "Insira a descrição do chamado",
+                      hintText: "Insira a descrição do chamado:",
                       label: "Descrição",
                       lines: 3,
                       onChanged: (value) {
