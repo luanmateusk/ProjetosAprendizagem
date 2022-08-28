@@ -24,15 +24,7 @@ class ConversorView extends StatelessWidget {
 
           
 
-          DropdownButton<String>(
-            value: dropDownValue, 
-            onChanged: (String? newValue) {
-            
-            setState(() {
-          dropDownValue = newValue!;
-        });
-            );
-
+          
 
 
           TextField(
