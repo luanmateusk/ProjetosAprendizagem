@@ -9,19 +9,33 @@
 
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:conversor/controller/calculo_controller.dart';
 import 'package:conversor/view/conversor_view.dart';
+import 'package:conversor/view/log_view.dart';
+import 'package:conversor/view/navigationBar.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main(){
-  runApp(AppConversor());
+void main() {
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider(create: (context) => CalculoController()),
+    ], child: AppConversor()),
+  );
 }
 
 class AppConversor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "Conversor3",
-        home: ConversorView(),
-      );
-  } 
+      title: "Conversor de Medidas",
+      home: ConversorView(),
+      initialRoute: "/conversor",
+      routes: {
+        "/conversor": (context) => ConversorView(),
+        "/log": (context) => LogConversoes(),
+        "/navigation": (context) => MyStatefulWidget(),
+      },
+    );
+  }
 }
