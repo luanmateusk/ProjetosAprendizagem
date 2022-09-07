@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(AppConversor());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class AppConversor extends StatefulWidget {
+  const AppConversor({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<AppConversor> createState() => _AppConversorState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _AppConversorState extends State<AppConversor> {
   int _opcaoSelecionada = 0;
 
   Widget build(BuildContext context) {

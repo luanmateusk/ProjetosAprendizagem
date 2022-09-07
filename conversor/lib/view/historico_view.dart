@@ -1,0 +1,11 @@
+import 'package:flutter/material.dart';
+class HistoricoView extends StatelessWidget {
+  const HistoricoView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(child: Text('Histórico')),
+    );
+  }
+}

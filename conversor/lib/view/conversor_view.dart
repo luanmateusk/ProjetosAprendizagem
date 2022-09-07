@@ -19,10 +19,7 @@ class ConversorView extends StatelessWidget {
     // ignore: unnecessary_new
     return new Scaffold(
         backgroundColor: Color.fromARGB(255, 163, 64, 64),
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 88, 5, 5),
-          title: Text("Conversor de Medida"),
-        ),
+
         body: Consumer<CalculoController>(builder: (context, calculo, child) {
           return ListView(
             children: <Widget>[
