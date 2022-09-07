@@ -10,6 +10,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:conversor/controller/calculo_controller.dart';
+import 'package:conversor/controller/historico_controller.dart';
 import 'package:conversor/view/conversor_view.dart';
 import 'package:conversor/view/historico_view.dart';
 import 'package:conversor/view/grafico_view.dart';
@@ -20,6 +21,7 @@ void main() {
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(create: (context) => CalculoController()),
+      ChangeNotifierProvider(create: (context) => HistoricoController()),
     ], child: AppConversor()),
   );
 }

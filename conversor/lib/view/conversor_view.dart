@@ -50,6 +50,7 @@ class ConversorView extends StatelessWidget {
                                   //quando o valor inicial estiver preenchido executa...
                                   calculo.input = double.parse(_valorInicial);
                                    calculo.converter(calculo);
+                                   
                                   //calculo.output = 2;
                                 }
                               },
