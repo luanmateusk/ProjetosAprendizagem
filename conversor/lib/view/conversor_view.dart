@@ -18,70 +18,105 @@ class ConversorView extends StatelessWidget {
 
     // ignore: unnecessary_new
     return new Scaffold(
+        backgroundColor: Color.fromARGB(255, 163, 64, 64),
         appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 88, 5, 5),
           title: Text("Conversor de Medida"),
         ),
         body: Consumer<CalculoController>(builder: (context, calculo, child) {
           return ListView(
             children: <Widget>[
-              Align(
-                alignment: Alignment.topCenter,
-                //child: ValorConvertido(25),
+
+              Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Container(
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.topCenter,
+                              //child: ValorConvertido(25),
+                            ),
+                            SizedBox(height: 10),
+                            TextField(
+                              //controller: TextEditingController ( text: 1.toString() ),
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                  hintText: "Insira o valor",
+                                  label: Text("Valor")),
+                              onChanged: (_valorInicial) {
+                                if (_valorInicial != "") {
+                                  //quando o valor inicial estiver preenchido executa...
+                                  calculo.input = double.parse(_valorInicial);
+                                   calculo.converter(calculo);
+                                  //calculo.output = 2;
+                                }
+                              },
+                            ),
+                            SizedBox(height: 20),
+                            Text("De"),
+                            SizedBox(height: 10),
+                            DropdownButton<String>(
+                                isExpanded: true,
+                                value: calculo.nomeFrom,
+                                items: list.map((e) {
+                                  return DropdownMenuItem<String>(
+                                    child: Text(e),
+                                    value: e,
+                                  );
+                                }).toList(),
+                                onChanged: (_nomeFrom) {
+                                  calculo.nomeFrom = _nomeFrom;
+                                }),
+                            SizedBox(height: 10),
+                            Text("Para"),
+                            DropdownButton<String>(
+                                isExpanded: true,
+                                value: calculo.nomeTo,
+                                items: list.map((e) {
+                                  return DropdownMenuItem<String>(
+                                    child: Text(e),
+                                    value: e,
+                                  );
+                                }).toList(),
+                                onChanged: (_nomeFrom) {
+                                  calculo.nomeTo = _nomeFrom;
+                                }),
+                            ElevatedButton(
+                                onPressed: () {
+                                  calculo.converter(calculo);
+
+                                },
+                                child: Text("Registrar conversão")),
+                                
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              SizedBox(height: 10),
-              TextField(
-                //controller: TextEditingController ( text: 1.toString() ),
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                    hintText: "Insira o valor", label: Text("Valor")),
-                onChanged: (_valorInicial) {
-                  if (_valorInicial != "") {
-                    calculo.input = double.parse(_valorInicial);
-                    calculo.output = 2;
-                  }
-                },
+              Container(
+                child: Text(
+                  (calculo.input.toString()) +
+                      ' ' +
+                      (calculo.nomeFrom.toString()) +
+                      '\n são equivalentes á \n' +
+                      (calculo.output.toString()) +
+                      " " +
+                      (calculo.nomeTo.toString()),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 25),
+                ),
               ),
-              SizedBox(height: 20),
-              Text("De"),
-              SizedBox(height: 10),
-              DropdownButton<String>(
-                  isExpanded: true,
-                  value: calculo.nomeFrom,
-                  items: list.map((e) {
-                    return DropdownMenuItem<String>(
-                      child: Text(e),
-                      value: e,
-                    );
-                  }).toList(),
-                  onChanged: (_nomeFrom) {
-                    calculo.nomeFrom = _nomeFrom;
-                  }),
-              SizedBox(height: 10),
-              Text("Para"),
-              DropdownButton<String>(
-                  isExpanded: true,
-                  value: calculo.nomeTo,
-                  items: list.map((e) {
-                    return DropdownMenuItem<String>(
-                      child: Text(e),
-                      value: e,
-                    );
-                  }).toList(),
-                  onChanged: (_nomeFrom) {
-                    calculo.nomeTo = _nomeFrom;
-                  }),
-              SizedBox(height: 85),
-              Text(
-                (calculo.input.toString()) +
-                    ' ' +
-                    (calculo.nomeFrom.toString()) +
-                    ' são equivalentes á ' +
-                    (calculo.output.toString()) +
-                    " " +
-                    (calculo.nomeTo.toString()),
-                textAlign: TextAlign.center,
-              ),
-            ],
+                          Center(
+                child: Image.asset('lib/assets/speedometter.png',
+                    width: 250, height: 250),
+              ),],
           );
         }));
   }

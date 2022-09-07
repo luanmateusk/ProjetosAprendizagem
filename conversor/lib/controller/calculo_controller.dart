@@ -27,7 +27,7 @@ class CalculoController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void converter() {
+  void converter(CalculoController calculoX) {
     String conversao = this.nomeFrom! + this.nomeTo!;
     ['Milhas', 'Quilômetros', 'Jarda'];
     switch (conversao) {
@@ -39,9 +39,7 @@ class CalculoController extends ChangeNotifier {
         break;
 
       case "QuilômetrosMilhas":
-        //_calculo.output!(2);
-
-        //(this.input!*0.621371);
+        calculoX.output = (this.input!*0.621371);
         break;
 
       case "QuilômetrosJarda":
