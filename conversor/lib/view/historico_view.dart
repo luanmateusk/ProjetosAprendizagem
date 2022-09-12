@@ -1,17 +1,65 @@
 import 'package:conversor/controller/historico_controller.dart';
 import 'package:conversor/models/historico_model.dart';
+import 'package:conversor/view/conversor_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-//final itens = List<String>.generate(100, (index) => "Cálculo $index");
-final List<String> itens = ['Milhas', 'Quilômetros', 'Jarda'];
-
-class HistoricoView extends StatelessWidget {
-  const HistoricoView({Key? key}) : super(key: key);
+class Log extends StatelessWidget {
+  bool exibeBotaoClear = false;
+  int _selectedIndex = 0;
+  String logString = '';
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold(body:
- Text("teste")));
+    return MaterialApp(
+      theme: ThemeData(
+          colorSchemeSeed: Color.fromARGB(255, 66, 2, 2), useMaterial3: true),
+      debugShowCheckedModeBanner: false,
+      title: 'Conversor de medidas',
+      home: Scaffold(
+        body: Column(
+          children: [
+            Consumer<HistoricoController>(builder: (context, log, child) {
+              return Column(
+                children: [
+                  Center(),
+                  SingleChildScrollView(
+                    child: Column(
+                      children: log.getSalvaLog.valoresLog!.map((calculo) {
+                        return Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Material(
+                              color: Colors.red[100],
+                              child: ListTile(
+                                title: Text(calculo.toString()),
+                                //subtitle: Text("Consertar"),
+                              )),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Visibility(
+                    visible: log.historicoX.existeItens,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        log.limpaLog();
+                        log.historicoX.existeItens = false;
+                        log.limpaLog();
+                      },
+                      child: const Text(
+                        'Apagar todos os registros',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            }),
+          ],
+        ),
+        
+   
+      ),
+    );
   }
 }

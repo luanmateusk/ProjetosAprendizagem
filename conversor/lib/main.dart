@@ -9,6 +9,8 @@
 
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'dart:ui';
+
 import 'package:conversor/controller/calculo_controller.dart';
 import 'package:conversor/controller/historico_controller.dart';
 import 'package:conversor/view/conversor_view.dart';
@@ -38,6 +40,9 @@ class _AppConversorState extends State<AppConversor> {
 
   Widget build(BuildContext context) {
     return MaterialApp(
+         debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          colorSchemeSeed: Color.fromARGB(255, 66, 2, 2), useMaterial3: true),
       home: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color.fromARGB(255, 102, 5, 5),
@@ -68,39 +73,24 @@ class _AppConversorState extends State<AppConversor> {
           ],
         ),
         appBar: AppBar(
+          
+          
           title: Text('Conversor de Medida'),
           backgroundColor: Color.fromARGB(255, 102, 5, 5),
+          titleTextStyle: TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold),
           
+
         ),
-        /*IndexedStack onde define conforme opcao selecionada qual tela o body irá exibir*/ 
-      body: IndexedStack(index: _opcaoSelecionada, children:<Widget> [
-        ConversorView(),
-        HistoricoView(),
-        GraficoView(),
-      ],),),
+        /*IndexedStack onde define conforme opcao selecionada qual tela o body irá exibir*/
+        body: IndexedStack(
+          index: _opcaoSelecionada,
+          children: <Widget>[
+            ConversorView(),
+            Log(),
+            GraficoView(),
+          ],
+        ),
+      ),
     );
   }
 }
-
-
-
-
-
-
-/*class AppConversor extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Conversor de Medidas",
-      home: ConversorView(),
-      initialRoute: "/conversor",
-      routes: {
-        "/conversor": (context) => ConversorView(),
-        "/log": (context) => LogConversoes(),
-        "/navigation": (context) => MyStatefulWidget(),
-      },
-    );
-  }
-}*/
-
-

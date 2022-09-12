@@ -3,25 +3,38 @@ import 'package:flutter/material.dart';
 import '../models/calculo_model.dart';
 
 class HistoricoController extends ChangeNotifier {
-  Historico _historico = new Historico();
-  Historico get getHistorico => _historico; //? entender
+  Historico historicoX = new Historico();
+  Historico get getSalvaLog => historicoX;
 
-  void set novoCalculoLista(String? input) {
-    _historico.addCalculo(input!);
-    notifyListeners();
-  }
-}
-  /*late Calculo calculoRealizado;
-  DateTime horaCalculo=DateTime.now();
-
-  Historico _historico = new Historico();
-
-    void set addRegistro(double? input) {
-    _calculo.input = input;
+  
+  void renew() {
+    historicoX = new Historico();
     notifyListeners();
   }
 
+  void set valoresLog(List<String>? valoresLog) {
+    historicoX.valoresLog!.addAll(valoresLog!);
+    historicoX.qtdItens++;
+    //historicoX.existeItens=true;
+    notifyListeners();
+  }
 
-  HistoricoController(this.calculoRealizado, this.horaCalculo);
+  void set logString(String? logString) {
+    historicoX.logString = logString;
+  }
+
+  String? listaLog() {
+    for (int i = 0; i < historicoX.valoresLog!.length; i++) {
+      logString = logString! + historicoX.valoresLog![i] + '\n';
+    }
+    return logString;
+  }
+
+  List<String>? get salvaLog => historicoX.valoresLog;
+  String? get logString => historicoX.logString;
+
+  void limpaLog() {
+    historicoX.limpaLog();
+    notifyListeners();
+  }
 }
-*/

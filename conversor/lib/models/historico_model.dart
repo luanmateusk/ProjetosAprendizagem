@@ -1,21 +1,43 @@
 import 'package:flutter/material.dart';
 
-import 'calculo_model.dart';
-
 class Historico {
-  static List<String>? _calculosHistorico = [];
-  late DateTime horaCalculo;
+  static List<String>? _valoresLog = [];
+  static String? _logString = '';
+  static int _qtdItens = 0;
+  static bool _existeItens = false;
 
-  void addCalculo(String value) {
-    _calculosHistorico!.add(value);
+  get qtdItens => _qtdItens;
+  set qtdItens(value) => _qtdItens = value;
+
+  get existeItens => _existeItens;
+
+  set existeItens(value) => _existeItens = value;
+
+  Historico() {}
+
+  List<String>? get valoresLog => _valoresLog;
+  String? get logString => _logString;
+
+  // ignore: recursive_getters
+
+  static void setExisteValores(bool value) {
+    _existeItens = value;
   }
 
-  get calculosHistorico => calculosHistorico;
+  static void setValoreslog(String value) {
+    _valoresLog!.add(value);
+    _qtdItens++;
+  }
 
- set calculosHistorico( value) => calculosHistorico = value;
+  void set valoresLog(List<String>? valoresLog) {
+    _valoresLog!.addAll(valoresLog!);
+  }
 
-  get getHoraCalculo => this.horaCalculo;
+  void set logString(String? logString) {
+    _logString = logString;
+  }
 
- set setHoraCalculo( horaCalculo) => this.horaCalculo = horaCalculo;
-
+  void limpaLog() {
+    _valoresLog!.clear();
+  }
 }

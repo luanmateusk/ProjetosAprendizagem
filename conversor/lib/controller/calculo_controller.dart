@@ -3,7 +3,7 @@ import 'package:conversor/models/calculo_model.dart';
 import 'package:flutter/foundation.dart';
 
 class CalculoController extends ChangeNotifier {
-  Calculo _calculo = new Calculo("Quilômetros", "Milhas", 1, 0.621371);
+  Calculo _calculo = new Calculo("Quilômetros", "Milhas", 0, 0);
 
   Calculo get getCalculo => _calculo;
 
