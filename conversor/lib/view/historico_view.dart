@@ -4,11 +4,18 @@ import 'package:conversor/view/conversor_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Log extends StatelessWidget {
-  bool exibeBotaoClear = false;
-  int _selectedIndex = 0;
-  String logString = '';
+bool exibeBotaoClear = false;
+int _selectedIndex = 0;
+String logString = '';
 
+class Log extends StatefulWidget {
+  const Log({Key? key}) : super(key: key);
+
+  @override
+  State<Log> createState() => _LogState();
+}
+
+class _LogState extends State<Log> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,6 +45,7 @@ class Log extends StatelessWidget {
                       }).toList(),
                     ),
                   ),
+                  Text("Exibindo " + log.getSalvaLog.qtdItens.toString()+ " registro(s)"),
                   Visibility(
                     visible: log.historicoX.existeItens,
                     child: ElevatedButton(
@@ -52,13 +60,12 @@ class Log extends StatelessWidget {
                       ),
                     ),
                   ),
+                  
                 ],
               );
             }),
           ],
         ),
-        
-   
       ),
     );
   }

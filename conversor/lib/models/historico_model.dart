@@ -7,7 +7,7 @@ class Historico {
   static bool _existeItens = false;
 
   get qtdItens => _qtdItens;
-  set qtdItens(value) => _qtdItens = value;
+  set qtdItens(value) => _qtdItens++;
 
   get existeItens => _existeItens;
 

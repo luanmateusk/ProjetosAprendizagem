@@ -32,10 +32,10 @@ class CalculoController extends ChangeNotifier {
     ['Milhas', 'Quilômetros', 'Jarda'];
     switch (conversao) {
       case "MilhasQuilômetros":
-        // do something
+        calculoX.output = (this.input!*1.60934);
         break;
       case "MilhasJarda":
-        // do something else
+        calculoX.output = (this.input!*0.000568182);
         break;
 
       case "QuilômetrosMilhas":
@@ -43,25 +43,25 @@ class CalculoController extends ChangeNotifier {
         break;
 
       case "QuilômetrosJarda":
-        // do something else
+        calculoX.output = (this.input!*1093.61);
         break;
 
       case "JardaMilhas":
-        // do something else
+        calculoX.output = (this.input!*0.000568182);
         break;
 
       case "JardaQuilômetros":
-        // do something else
+        calculoX.output = (this.input!*0.0009144);
         break;
 
       case "QuilômetrosQuilômetros":
-        // do something else
+        calculoX.output = (this.input!*1);
         break;
       case "MilhasMilhas":
-        // do something else
+        calculoX.output = (this.input!*1);
         break;
       case "JardaJarda":
-        // do something else
+        calculoX.output = (this.input!*1);
         break;
     }
   }

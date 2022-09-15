@@ -77,7 +77,6 @@ class _GraficoViewState extends State<GraficoView> {
 
                       valorItemChart.clear();
                       legendaItemChart.clear();
-                      
                     });
                   } else {
                     showDialog(
@@ -119,6 +118,64 @@ class _GraficoViewState extends State<GraficoView> {
                 gradientList: gradientList,
               ),
             ),
+            // Generated code for this ListTile Widget...
+            // Container(
+            //   child: ListTile(
+            //     title: Text(
+            //       'Lorem ipsum dolor...',
+            //     ),
+            //     subtitle: Text(
+            //       'Lorem ipsum dolor...',
+            //     ),
+            //     trailing: Icon(
+            //       Icons.arrow_forward_ios,
+            //       color: Color(0xFF303030),
+            //       size: 20,
+            //     ),
+            //     tileColor: Color(0xFFF5F5F5),
+            //     dense: false,
+            //   ),
+            // ),
+
+// Container(
+
+//         child: SingleChildScrollView(
+
+//           padding: const EdgeInsets.fromLTRB(1, 50, 1, 1),
+//           child: Column(
+
+//             children:
+//               // ignore: unnecessary_new
+//               dataMap.entries.map( (entry) => new ListTile(
+
+//                 //style:
+//                 contentPadding: const EdgeInsets.all(5.0),
+//                 leading: Icon(Icons.add_chart),
+//                 title: Text(entry.key),
+//                 subtitle: Text(entry.value.toString()),
+//                 tileColor: Color.fromARGB(255, 102, 5, 5),
+//                 textColor: Colors.white,
+//                 trailing: Icon(Icons.more_vert),
+//                 onTap: () {                     showDialog(
+//                       context: context,
+//                       builder: (context) {
+//                         return AlertDialog(
+//                           // Retrieve the text the that user has entered by using the
+//                           // TextEditingController.
+//                           content: Text(entry.key + ":"+entry.value.toString()),
+//                         );
+//                       },
+//                     );}
+
+//                 //trailing: Text(entry.value.toString()),
+//               )).toList()
+//            ),
+//         )
+//     )
+
+        
+         
+            
           ],
         ),
       ),

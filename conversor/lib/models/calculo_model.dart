@@ -12,6 +12,5 @@ class Calculo {
   void set setNomeFrom(nomeFrom) => this.nomeFrom = nomeFrom;
   void set setNomeTo(nomeTo) => this.nomeTo = nomeTo;
   void set setoutput(output) => this.output = output;
-
-
+  
 }
