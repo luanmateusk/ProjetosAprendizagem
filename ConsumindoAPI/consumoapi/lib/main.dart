@@ -1,4 +1,5 @@
 import 'package:consumoapi/view/agendamentos.dart';
+import 'package:consumoapi/view/busca_cep.dart';
 import 'package:consumoapi/view/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _AppServicosState extends State<AppServicos> {
 
   Widget build(BuildContext context) {
     return MaterialApp(
-         debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
           colorSchemeSeed: Color.fromARGB(255, 66, 2, 2), useMaterial3: true),
       home: Scaffold(
@@ -44,27 +45,22 @@ class _AppServicosState extends State<AppServicos> {
               icon: Icon(Icons.history),
               label: 'Agendamentos',
             ),
-
           ],
         ),
         appBar: AppBar(
-          
-          
-          title: Text('Conversor de Medida'),
+          title: Text('Agendamentos'),
           backgroundColor: Color.fromARGB(255, 102, 5, 5),
-          titleTextStyle: TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold),
-          
-
+          titleTextStyle: TextStyle(
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
         ),
         /*IndexedStack onde define conforme opcao selecionada qual tela o body irá exibir*/
         body: IndexedStack(
           index: _opcaoSelecionada,
           children: <Widget>[
             //a ordenação deses define a sequência
-            HomePage(),
+
+            BuscaCep(),
             Agendamentos(),
-            
-       
           ],
         ),
       ),

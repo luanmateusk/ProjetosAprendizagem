@@ -1,13 +1,13 @@
-import 'package:consumoapi/models/cliente_model.dart';
+import 'package:consumoapi/models/agendamento_model.dart';
 
 class AgendamentosModel {
-  static List<Cliente>? agendamentosList = [];
+  static List<Agendamento>? _agendamentosList = [];
 
-  void adicionaAgendamento(Cliente value) {
-    agendamentosList?.add(value);
+  void adicionaAgendamento(Agendamento value) {
+    _agendamentosList?.add(value);
   }
 
-  List<Cliente>? get listaAgendamentos {
-    return agendamentosList;
+  List<Agendamento>? get listaAgendamentos {
+    return _agendamentosList;
   }
 }

@@ -1,33 +1,27 @@
 import 'package:consumoapi/models/endereco_model.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; //
 
-class Cliente {
+class Agendamento {
   int? id;
   String? nome;
   String? sobrenome;
   Endereco endereco = new Endereco();
   Map<String, String>? contato;
+  String? cep;
+  DateTime? diaAgendamento;
+  TimeOfDay? horaAgendamento;
 
-  Cliente(nome, sobrenome) {
+
+  Agendamento(nome, sobrenome, cepY) {
     this.nome = nome;
     this.sobrenome = sobrenome;
-
+    this.cep = cepY;
+    
   }
 
-  void criaLocalizacao(String cepX) async {
-    String cep = cepX; //get cep digitado no textfield
-    String url = "https://viacep.com.br/ws/${cep}/json/";
-
-    http.Response response;
-    response = await http.get(Uri.parse(url));
-
-    Map<String, dynamic> retorno = json.decode(response
-        .body); //json decode conerte o corpo do json para o formato de map
-    this.endereco?.logradouro = retorno["logradouro"];
-    this.endereco?.localidade = retorno["localidade"];
-    this.endereco?.bairro = retorno["bairro"];
-  }
+  
 
   get getId => this.id;
 
