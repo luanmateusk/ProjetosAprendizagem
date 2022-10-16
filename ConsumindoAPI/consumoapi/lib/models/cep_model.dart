@@ -7,7 +7,6 @@ class ResultCep {
   String bairro;
   String localidade;
   String uf;
-  //String unidade;
   String ibge;
   String gia;
 
@@ -18,7 +17,6 @@ class ResultCep {
     required this.bairro,
     required this.localidade,
     required this.uf,
-    //required this.unidade,
     required this.ibge,
     required this.gia,
   });

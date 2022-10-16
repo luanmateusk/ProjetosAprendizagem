@@ -8,20 +8,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pra que serve ?',
       home: Scaffold(
-        appBar: AppBar(title: Text("Hello World")),
-        body: Center(
-          child: Column(
-          
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextField(textAlign: TextAlign.center,maxLength: 2,cursorColor: Colors.red),
-              ElevatedButton(onPressed: null, child: Text("OK"))
-              ],
-
-              
-          ),
-        ),
-      ),
+          appBar: AppBar(title: Text("Hello World")),
+          body: Center(
+            child: Row(
+              children: [Text("texto"), Text("texto2"), Text("texto3")],
+            ),
+          )),
     );
   }
 }

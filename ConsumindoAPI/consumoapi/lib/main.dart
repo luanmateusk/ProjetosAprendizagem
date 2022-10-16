@@ -1,7 +1,8 @@
+import 'package:consumoapi/models/agendamento_model.dart';
 import 'package:consumoapi/view/agendamentos.dart';
-import 'package:consumoapi/view/busca_cep.dart';
 import 'package:consumoapi/view/home_page.dart';
 import 'package:flutter/material.dart';
+import 'helpers/connection.dart';
 
 void main() {
   runApp(const AppServicos());
@@ -15,9 +16,25 @@ class AppServicos extends StatefulWidget {
 }
 
 class _AppServicosState extends State<AppServicos> {
+  
+  List<Agendamento> listas = [];
+  DbHelper dbhelper = DbHelper();
+
+  @override
+  initState() {
+    //erros no BD
+    //dbhelper = new DbHelper();
+
+    super.initState();
+  }
+
+  Future initialize() async {}
+
   int _opcaoSelecionada = 0;
 
   Widget build(BuildContext context) {
+    //dbhelper.testDb();
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -38,7 +55,7 @@ class _AppServicosState extends State<AppServicos> {
           },
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.calculate),
+              icon: Icon(Icons.new_label),
               label: 'Novo Agendamento',
             ),
             BottomNavigationBarItem(

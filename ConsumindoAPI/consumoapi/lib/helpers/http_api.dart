@@ -3,8 +3,8 @@ import 'package:http/http.dart' as http;
 
 import '../models/cep_model.dart';
 
-class ViaCepService {
-  static Future<ResultCep> fetchCep({required String cep}) async {
+class IntegraCEP {
+  static Future<ResultCep> retornaCEP({required String cep}) async {
 
 
   String url = "https://viacep.com.br/ws/${cep}/json/";

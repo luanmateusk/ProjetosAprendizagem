@@ -9,7 +9,7 @@ class Agendamento {
   String? sobrenome;
   Endereco endereco = new Endereco();
   Map<String, String>? contato;
-  String? cep;
+ // String? cep;
   DateTime? diaAgendamento;
   TimeOfDay? horaAgendamento;
 
@@ -17,29 +17,7 @@ class Agendamento {
   Agendamento(nome, sobrenome, cepY) {
     this.nome = nome;
     this.sobrenome = sobrenome;
-    this.cep = cepY;
+   // this.cep = cepY;
     
   }
-
-  
-
-  get getId => this.id;
-
-  set setId(id) => this.id = id;
-
-  get getNome => this.nome;
-
-  void setNome(nome) => this.nome = nome;
-
-  get getSobrenome => this.sobrenome;
-
-  set setSobrenome(sobrenome) => this.sobrenome = sobrenome;
-
-  get getEndereco => this.endereco;
-
-  set setEndereco(endereco) => this.endereco = endereco;
-
-  get getContato => this.contato;
-
-  set setContato(contato) => this.contato = contato;
 }
