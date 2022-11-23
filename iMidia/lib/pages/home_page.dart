@@ -1,8 +1,15 @@
+import 'dart:io';
+
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebaseprofdiegocampos/components/notification.dart';
+import 'package:firebaseprofdiegocampos/pages/audio_page.dart';
 import 'package:firebaseprofdiegocampos/pages/camera_page.dart';
+import 'package:firebaseprofdiegocampos/pages/maps_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
+import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import '../services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,6 +21,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    final FirebaseMessaging = FCM();
+    FirebaseMessaging.setNotifications();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             makeDashboardItem("Câmera", Icons.camera),
             makeDashboardItem("Áudio", Icons.voice_over_off),
-            makeDashboardItem("Configurações", Icons.settings),
+            makeDashboardItem("Mapas", Icons.map_outlined),
             makeDashboardItem("Sair", Icons.exit_to_app),
           ],
         ),
@@ -62,11 +76,17 @@ class _HomePageState extends State<HomePage> {
                   break;
 
                 case "Áudio":
-                  {}
+                  {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AudioComponent(File('abc'))));
+                  }
                   break;
 
-                case "Configurações":
-                  {}
+                case "Mapas":
+                  {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => MapsPage()));
+                  }
                   break;
 
                 case "Câmera":
