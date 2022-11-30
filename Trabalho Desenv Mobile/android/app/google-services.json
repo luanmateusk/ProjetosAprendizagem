@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "335395033771",
+    "project_id": "iagenda-24894",
+    "storage_bucket": "iagenda-24894.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335395033771:android:d59959ae499820ab04ddee",
+        "android_client_info": {
+          "package_name": "com.example.firebaseprofdiegocampos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335395033771-vsdv7vg3hpp6kkakofs8umknopfg0r47.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS6PqsjVY6l4X24zEshlrI6K_4EZybJVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335395033771-vsdv7vg3hpp6kkakofs8umknopfg0r47.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
