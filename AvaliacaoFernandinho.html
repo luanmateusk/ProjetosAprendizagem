@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora Prova do Fernandinho</title>
+  <script>
+    function calcular() {
+
+	  var x = document.getElementById("x").value;
+	  xmin= 18,49;
+	  xmax= 313,59;
+	  ymin= -200;
+	  ymax=600;
+	  w11=-2.0591
+	  w12=1.6810
+	  w21=-1.7461
+	  w22=1.8598
+	  b11=1.7638
+	  b12=1.2592
+	  b2=-0.0254
+	  
+	  
+	  //1° Cálculo normalização---------------------------------------------------------------------
+	  var xn = ((2*(x-xmin))/(xmax-xmin))-1; 
+      
+	  //2° Cálculo y11---------------------------------------------------------------------
+	    
+	  var y11Result=(w11*xn)+b11;
+	  //referente ao sinal negativo, está invertendo se o ao multiplicar w11*xn for negativo, altera apara positivo
+		  if (y11Result>=0) {
+				y11Result=-y11Result
+			} else {
+				y11Result=Math.abs(y11Result)	
+		  }
+		  
+	  //cálculo do exp
+	  y11Result=Math.exp(y11Result);
+	
+     //adiciona 1 e divide por 1
+	 y11Result=1/(1+y11Result);
+	  
+	 //3° Cálculo y11--------------------------------------------------------------------------------
+	    
+	  var y12Result=(w12*xn)+b12;
+	  //referente ao sinal negativo, está invertendo se o ao multiplicar w11*xn for negativo, altera apara positivo
+		  if (y12Result>=0) {
+				y12Result=-y12Result
+			} else {
+				y12Result=Math.abs(y12Result)	
+		  }
+		  
+	  //cálculo do exp  
+	  y12Result=Math.exp(y12Result);
+	
+     //adiciona 1 e divide por 1
+	 y12Result=1/(1+y12Result);
+	 
+	 //4° Cálculo yn--------------------------------------------------------------------------------
+	 var ynResult=(y11Result*w21)+(y12Result*w22)+b2;	
+	 
+	 //4° Cálculo Y--------------------------------------------------------------------------------
+	 //var Yresult=(ynResult+1);//*(ymax-ymin);
+	 var Yresult=((ynResult+1)*(ymax-ymin)/2)-200;
+	 
+      document.getElementById("normalizacao").innerHTML = "1° Calculo (Normalização): " + xn;
+	  document.getElementById("w11").innerHTML = "2° Calculo (W11): " + (y11Result);
+	  document.getElementById("w12").innerHTML = "3° Calculo (W12): " + (y12Result);
+	  document.getElementById("yn").innerHTML = "4° Calculo (YN): " + (ynResult);
+	  document.getElementById("y").innerHTML = "5° Calculo (Y): " + (Yresult);	
+	  
+    }
+  </script>
+</head>
+<body>
+  <h1>Calculadora Prova do Fernandinho</h1>
+  <form onsubmit="calcular(); return false;">
+    <label for="num1">Informar o X:</label>
+    <input type="number" id="x" name="x"><br>
+    <input type="submit" value="Calcular">
+  </form>
+  <p id="normalizacao"></p>
+  <p id="w11"></p>
+  <p id="w12"></p>
+  <p id="yn"></p>
+  <p id="y"></p>
+</body>
+</html>
